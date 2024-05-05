@@ -14,6 +14,8 @@ class Player(object):
         self.proTeam = PRO_TEAM_MAP.get(json_parsing(data, 'proTeamId'), json_parsing(data, 'proTeamId'))
         self.injuryStatus = json_parsing(data, 'injuryStatus')
         self.stats = {}
+        self.draftAuctionValue = json_parsing(data, 'draftAuctionValue')  # Add draft auction value attribute
+        self.keeperValue = json_parsing(data, 'keeperValue') # Add keeper value attribute
 
         player = data.get('playerPoolEntry', {}).get('player') or data['player']
         self.injuryStatus = player.get('injuryStatus', self.injuryStatus)
